@@ -19,7 +19,7 @@ void sort(int *array, int low, int high, size_t size)
 	pivot = array[high];
 	for (; j < high; j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] < pivot)
 		{
 			i++;
 			tmp = array[i];
@@ -32,7 +32,7 @@ void sort(int *array, int low, int high, size_t size)
 		}
 	}
 	i++;
-	if (i != j)
+	if (array[i] > pivot && i != j)
 	{
 		tmp = array[high];
 		array[high] = array[i];
