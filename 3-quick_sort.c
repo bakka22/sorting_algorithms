@@ -33,7 +33,7 @@ void sort(int *array, int low, int high, size_t size)
 	}
 	if (i + 1 < high)
 		sort(array, i + 1, high, size);
-	if (i - 1 > low)
+	if (i - 1 >= low)
 		sort(array, low, i - 1, size);
 }
 

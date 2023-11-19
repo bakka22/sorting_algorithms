@@ -1,5 +1,5 @@
 #include "sort.h"
-/*
+/**
 *sort - impelement quick sort recursivly
 *@array: array to be sorted
 *@low: the index to start in
