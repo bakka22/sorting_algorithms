@@ -22,11 +22,11 @@ void sort(int *array, int low, int high, size_t size)
 		if (array[j] <= pivot)
 		{
 			i++;
+			tmp = array[i];
+			array[i] = array[j];
+			array[j] = tmp;
 			if (i != j)
 			{
-				tmp = array[i];
-				array[i] = array[j];
-				array[j] = tmp;
 				print_array(array, size);
 			}
 		}
