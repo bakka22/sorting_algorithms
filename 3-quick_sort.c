@@ -11,7 +11,7 @@ void sort(int *array, int low, int high, size_t size)
 {
 	int i, j, pivot, tmp;
 
-	if (low == high)
+	if (low >= high || low < 0)
 		return;
 
 	j = low;
@@ -39,10 +39,8 @@ void sort(int *array, int low, int high, size_t size)
 		array[i] = tmp;
 		print_array(array, size);
 	}
-	if (i + 1 < high)
-		sort(array, i + 1, high, size);
-	if (i - 1 > low)
-		sort(array, low, i - 1, size);
+	sort(array, i + 1, high, size);
+	sort(array, low, i - 1, size);
 }
 
 /**
