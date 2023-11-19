@@ -1,9 +1,11 @@
 #include "sort.h"
-/*
-*
-*
-*
-*
+/**
+*sort - impelement quick sort recursivly
+*@array: array to be sorted
+*@low: the index to start in
+*@high: the index to end in
+*@size: size of the array
+*Return: nothing
 */
 void sort(int *array, int low, int high, size_t size)
 {
@@ -36,10 +38,10 @@ void sort(int *array, int low, int high, size_t size)
 }
 
 /**
-*
-*
-*
-*
+*quick_sort - sort an array using quick sort
+*@array: array to be sorted
+*@size: size of the array
+*Return: nothing
 */
 
 void quick_sort(int *array, size_t size)
@@ -47,5 +49,5 @@ void quick_sort(int *array, size_t size)
 
 	if (size <= 1 || !array)
 		return;
- 	sort(array, 0, (int)(size - 1), size);
+	sort(array, 0, (int)(size - 1), size);
 }
