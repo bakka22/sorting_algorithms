@@ -2,10 +2,10 @@
 #include <stdlib.h>
 
 /**
-*
-*
-*
-*
+*counting_sort - sort array using count sort algorithm
+*@array: array to be sorted
+*@size: size of the array
+*Return: nothing
 */
 void counting_sort(int *array, size_t size)
 {
