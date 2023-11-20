@@ -34,24 +34,16 @@ void shell_sort(int *array, size_t size)
 	}
 	while (gap)
 	{
-		for (i = 0; i < (int)size - 1; i++)
+		for (i = gap; i < (int)size; i++)
 		{
-			if (i + gap < (int)size)
+			j = i;
+			while (j - gap > 0 && array[j] < array[j - gap])
 			{
-				if (array[i + gap] < array[i])
-				{
-					swap2(array, i, i + gap);
-				}
-				for (j = i; j - gap > 0; j = j - gap)
-				{
-					if (array[j] < array[j - gap])
-						swap2(array, j, j - gap);
-				}
+				swap(array, j, j - gap);
+				j -= gap;
 			}
-			else
-				break;
 		}
-		gap /= 3;
+		gap = (gap - 1) / 3;
 		print_array(array, size);
 	}
 }
