@@ -32,7 +32,7 @@ void sort(int *array, int low, int high, size_t size)
 	tmp = array[high];
 	array[high] = array[i];
 	array[i] = tmp;
-	if (i - 1 != j)
+	if (i != j)
 		print_array(array, size);
 	sort(array, i + 1, high, size);
 	sort(array, low, i - 1, size);
