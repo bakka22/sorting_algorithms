@@ -34,7 +34,7 @@ void shell_sort(int *array, size_t size)
 	}
 	while (gap)
 	{
-		for (i = 0; i < (int)size; i++)
+		for (i = 0; i < (int)size - 1; i++)
 		{
 			if (i + gap < (int)size)
 			{
@@ -51,7 +51,7 @@ void shell_sort(int *array, size_t size)
 			else
 				break;
 		}
-		gap /= 3;
+		gap = (gap - 1) / 3;
 		print_array(array, size);
 	}
 }
