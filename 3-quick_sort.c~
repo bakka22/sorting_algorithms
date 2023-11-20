@@ -15,25 +15,20 @@ void sort(int *array, int low, int high, size_t size)
 		return;
 
 	j = low;
-	i = low;
+	i = low - 1;
 	pivot = array[high];
-	for (; j < high; j++)
+	for (; j <= high; j++)
 	{
-		if (array[j] < pivot)
+		if (array[j] <= pivot)
 		{
 			tmp = array[i];
 			array[i] = array[j];
 			array[j] = tmp;
 			i++;
-			if (i - 1 != j)
+			if (i != j)
 				print_array(array, size);
 		}
-	}	
-	tmp = array[high];
-	array[high] = array[i];
-	array[i] = tmp;
-	if (i != j)
-		print_array(array, size);
+	}
 	sort(array, i + 1, high, size);
 	sort(array, low, i - 1, size);
 }
