@@ -25,13 +25,15 @@ void sort(int *array, int low, int high, size_t size)
 			array[i] = array[j];
 			array[j] = tmp;
 			i++;
-			print_array(array, size);
+			if (i - 1 != j)
+				print_array(array, size);
 		}
 	}	
 	tmp = array[high];
 	array[high] = array[i];
 	array[i] = tmp;
-	print_array(array, size);
+	if (i != j)
+		print_array(array, size);
 	sort(array, i + 1, high, size);
 	sort(array, low, i - 1, size);
 }
