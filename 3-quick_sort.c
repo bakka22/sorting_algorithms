@@ -29,8 +29,8 @@ void sort(int *array, int low, int high, size_t size)
 				print_array(array, size);
 		}
 	}
-	sort(array, i + 1, high, size);
 	sort(array, low, i - 1, size);
+	sort(array, i + 1, high, size);
 }
 
 /**
@@ -43,7 +43,7 @@ void sort(int *array, int low, int high, size_t size)
 void quick_sort(int *array, size_t size)
 {
 
-	/*if (array == NULL || size < 2)
-		return;*/
+	if (array == NULL || size < 2)
+		return;
 	sort(array, 0, (int)(size - 1), size);
 }
