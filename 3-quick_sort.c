@@ -43,7 +43,7 @@ void sort(int *array, int low, int high, size_t size)
 void quick_sort(int *array, size_t size)
 {
 
-	if (size <= 1 || !array)
+	if (array == NULL || size < 2)
 		return;
 	sort(array, 0, (int)(size - 1), size);
 }
