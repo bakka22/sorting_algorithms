@@ -25,17 +25,13 @@ void sort(int *array, int low, int high, size_t size)
 			array[i] = array[j];
 			array[j] = tmp;
 			i++;
-			if (i != j)
-			{
-				print_array(array, size);
-			}
+			print_array(array, size);
 		}
 	}	
 	tmp = array[high];
 	array[high] = array[i];
 	array[i] = tmp;
-	if (array[i] >= pivot && i != j)
-		print_array(array, size);
+	print_array(array, size);
 	sort(array, i + 1, high, size);
 	sort(array, low, i - 1, size);
 }
