@@ -100,6 +100,6 @@ void merge_sort(int *array, size_t size)
 	for (i = 0; i < (int)size; i++)
 		arr2[i] = array[i];
 
-	sor(array, arr2, size, 0, size - 1, 0);	
+	sor(array, arr2, size, 0, size - 1, 1);	
 	free(arr2);
 }

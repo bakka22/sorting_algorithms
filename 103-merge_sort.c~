@@ -31,7 +31,7 @@ void sor(int *array, int *arr2, size_t size, int low, int high, int choose)
 	for (i = low; i < low + x; i++)
 	{
 		if (i != low)
-			printf(" ,");
+			printf(", ");
 		printf("%d", src[i]);
 	}
 	printf("\n");
@@ -39,7 +39,7 @@ void sor(int *array, int *arr2, size_t size, int low, int high, int choose)
 	for (i = low + x; i <= high; i++)
 	{
 		if (i != low + x)
-			printf(" ,");
+			printf(", ");
 		printf("%d", src[i]);
 	}
 	printf("\n");
@@ -74,7 +74,7 @@ void sor(int *array, int *arr2, size_t size, int low, int high, int choose)
 	for (k = low; k <= high; k++)
 	{
 		if (k != low)
-			printf(" ,");
+			printf(", ");
 		printf("%d", dist[k]);
 	}
 	printf("\n");
