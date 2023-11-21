@@ -16,6 +16,28 @@
 void sup2(int *array, int *arr2, size_t size, int low, int high, int x,
 	int *src, int *dist)
 {
+	int i, k, j;
+
+	(void)array;
+	(void)arr2;
+	(void)size;
+	i = low;
+        j = low + x;
+        k = low;
+	while (i < low + x && j <= high)
+	{
+		if (src[i] > src[j])
+		{
+			dist[k] = src[j];
+			j++;
+		}
+		else
+		{
+			dist[k] = src[i];
+			i++;
+		}
+		k++;
+	}
 	for (; i < low + x; i++)
 	{
 		dist[k] = src[i];
@@ -52,6 +74,9 @@ void sup(int *array, int *arr2, size_t size, int low, int high, int x,
 {
 	int i, k, j;
 
+	(void) array;
+	(void)arr2;
+	(void)size;
 	printf("Merging...\n");
 	printf("[left]: ");
 	for (i = low; i < low + x; i++)
@@ -69,23 +94,7 @@ void sup(int *array, int *arr2, size_t size, int low, int high, int x,
 		printf("%d", src[i]);
 	}
 	printf("\n");
-	i = low;
-	j = low + x;
-	k = low;
-	while (i < low + x && j <= high)
-	{
-		if (src[i] > src[j])
-		{
-			dist[k] = src[j];
-			j++;
-		}
-		else
-		{
-			dist[k] = src[i];
-			i++;
-		}
-		k++;
-	}
+	sup2(array, arr2, size, low, high, x, src, dist);
 }
 /**
 *sor - ...
@@ -99,7 +108,7 @@ void sup(int *array, int *arr2, size_t size, int low, int high, int x,
 */
 void sor(int *array, int *arr2, size_t size, int low, int high, int choose)
 {
-	int x = 0, *src, *dist, i, j, k;
+	int x = 0, *src, *dist;
 
 	if (choose % 2 == 0)
 	{
