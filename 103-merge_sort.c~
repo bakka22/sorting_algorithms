@@ -72,7 +72,7 @@ void sup2(int *array, int *arr2, size_t size, int low, int high, int x,
 void sup(int *array, int *arr2, size_t size, int low, int high, int x,
 	int *src, int *dist)
 {
-	int i, k, j;
+	int i;
 
 	(void) array;
 	(void)arr2;

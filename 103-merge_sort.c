@@ -22,8 +22,8 @@ void sup2(int *array, int *arr2, size_t size, int low, int high, int x,
 	(void)arr2;
 	(void)size;
 	i = low;
-        j = low + x;
-        k = low;
+	j = low + x;
+	k = low;
 	while (i < low + x && j <= high)
 	{
 		if (src[i] > src[j])
