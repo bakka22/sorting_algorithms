@@ -1,65 +1,21 @@
 #include "sort.h"
 #include <stdlib.h>
 #include <stdio.h>
-void sor(int *array, int *arr2, size_t size, int low, int high, int choose)
+/**
+*sup - ....
+*@array: ....
+*@arr2: ...
+*@size: ...
+*@low: ...
+*@high: ...
+*@x: ...
+*@src: ...
+*@dist: ...
+*Return: nothing
+*/
+void sup2(int *array, int *arr2, size_t size, int low, int high, int x,
+	int *src, int *dist)
 {
-	int x = 0, *src, *dist, i, j, k;
-
-	if (choose % 2 == 0)
-	{
-		src = array;
-		dist = arr2;
-	}
-	else
-	{
-		src = arr2;
-		dist = array;
-	}
-
-	if(high - low < 1)
-	{
-		/*printf("cell : %d\n", src[low]);*/
-		(void)dist;
-		return;
-	}
-
-	x = (high - low + 1) / 2;
-	sor(array, arr2, size, low, low + x - 1, choose + 1);
-	sor(array, arr2, size, low + x, high, choose + 1);
-	printf("Merging...\n");
-	printf("[left]: ");
-	for (i = low; i < low + x; i++)
-	{
-		if (i != low)
-			printf(", ");
-		printf("%d", src[i]);
-	}
-	printf("\n");
-	printf("[right]: ");
-	for (i = low + x; i <= high; i++)
-	{
-		if (i != low + x)
-			printf(", ");
-		printf("%d", src[i]);
-	}
-	printf("\n");
-	i = low;
-	j = low + x;
-	k = low;
-	while(i < low + x && j <= high)
-	{
-		if (src[i] > src[j])
-		{
-			dist[k] = src[j];
-			j++;
-		}
-		else
-		{
-			dist[k] = src[i];
-			i++;
-		}
-		k++;
-	}
 	for (; i < low + x; i++)
 	{
 		dist[k] = src[i];
@@ -80,12 +36,101 @@ void sor(int *array, int *arr2, size_t size, int low, int high, int choose)
 	printf("\n");
 }
 /**
-*
-*
-*
-*
+*sup - ....
+*@array: ....
+*@arr2: ...
+*@size: ...
+*@low: ...
+*@high: ...
+*@x: ...
+*@src: ...
+*@dist: ...
+*Return: nothing
 */
+void sup(int *array, int *arr2, size_t size, int low, int high, int x,
+	int *src, int *dist)
+{
+	int i, k, j;
 
+	printf("Merging...\n");
+	printf("[left]: ");
+	for (i = low; i < low + x; i++)
+	{
+		if (i != low)
+			printf(", ");
+		printf("%d", src[i]);
+	}
+	printf("\n");
+	printf("[right]: ");
+	for (i = low + x; i <= high; i++)
+	{
+		if (i != low + x)
+			printf(", ");
+		printf("%d", src[i]);
+	}
+	printf("\n");
+	i = low;
+	j = low + x;
+	k = low;
+	while (i < low + x && j <= high)
+	{
+		if (src[i] > src[j])
+		{
+			dist[k] = src[j];
+			j++;
+		}
+		else
+		{
+			dist[k] = src[i];
+			i++;
+		}
+		k++;
+	}
+}
+/**
+*sor - ...
+*@array: ...
+*@arr2: ...
+*@size: ...
+*@low: ...
+*@high: ...
+*@choose: ...
+*Return: nothing
+*/
+void sor(int *array, int *arr2, size_t size, int low, int high, int choose)
+{
+	int x = 0, *src, *dist, i, j, k;
+
+	if (choose % 2 == 0)
+	{
+		src = array;
+		dist = arr2;
+	}
+	else
+	{
+		src = arr2;
+		dist = array;
+	}
+
+	if (high - low < 1)
+	{
+		/*printf("cell : %d\n", src[low]);*/
+		(void)dist;
+		return;
+	}
+
+	x = (high - low + 1) / 2;
+	sor(array, arr2, size, low, low + x - 1, choose + 1);
+	sor(array, arr2, size, low + x, high, choose + 1);
+	sup(array, arr2, size, low, high, x, src, dist);
+
+}
+/**
+*merge_sort - ....
+*@array: ...
+*@size: ....
+*Return: ...
+*/
 void merge_sort(int *array, size_t size)
 {
 
@@ -100,6 +145,6 @@ void merge_sort(int *array, size_t size)
 	for (i = 0; i < (int)size; i++)
 		arr2[i] = array[i];
 
-	sor(array, arr2, size, 0, size - 1, 0);	
+	sor(array, arr2, size, 0, size - 1, 1);
 	free(arr2);
 }
